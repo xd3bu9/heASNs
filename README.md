@@ -23,7 +23,7 @@ dell
 |  |_google.txt
 |  |_yahoo.txt
 |  |_dell.txt
-|__Ranges
+|__ipRanges
 |  |_google.txt
 |  |_yahoo.txt
 |  |_dell.txt

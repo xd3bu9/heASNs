@@ -2,7 +2,7 @@ A script that fetches ASN information and ip ranges from [Hurricane Electric](ht
 
 **Usage**
 ```
-python heASNs.py /path/to/org/names/file.txt 
+python heASNs.py -orgs /path/to/org/names/file.txt -o /path/to/output/dir
 ```
 **Input**
 
@@ -18,13 +18,13 @@ dell
 **Output**
 
 ```
-|
-|__ASNs
-|  |_google.txt
-|  |_yahoo.txt
-|  |_dell.txt
-|__ipRanges
-|  |_google.txt
-|  |_yahoo.txt
-|  |_dell.txt
+.
+├──ASNs
+   ├──dell.txt
+   ├──google.txt
+   └──yahoo.txt
+├──ipRanges
+   ├──dell.txt
+   ├──google.com
+   └──yahoo.txt
 ```

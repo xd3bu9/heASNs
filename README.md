@@ -2,7 +2,7 @@ A script that fetches ASN information and ip ranges from [Hurricane Electric](ht
 
 **Usage**
 ```
-python heASNs.py -orgs /path/to/org/names/file.txt -o /path/to/output/dir
+python heASNs.py -i /path/to/org/names/file.txt -o /path/to/output/dir
 ```
 **Input**
 

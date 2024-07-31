@@ -22,7 +22,6 @@ asn_pattern = re.compile(r"\bAS\d{5}\b")
 def get_args():
     parser = ArgumentParser()
     parser.add_argument("-i", help="organization name or input file.")
-    parser.add_argument("-o", help="output directory.")
     return parser.parse_args()
 
 
@@ -43,11 +42,20 @@ def req(domain):
     return atags
 
 
+def print_output(lst, line):
+    if (len(lst) < 1):
+        return
+    print("----- " + line.strip() + " -----")
+    for item in lst:
+        print(item)
+
+
+# end def
 def parse(links, line, dir):
     ipRanges = list(set(re.findall(ranges_pattern, str(links))))
     asns = list(set(re.findall(asn_pattern, str(links))))
-    save_output(dir, "{}".format(line.replace("\n", "")), asns)
-    save_output(dir, "{}".format(line.replace("\n", "")), ipRanges)
+    print_output(asns, line=line)
+    print_output(ipRanges, line=line)
 
 
 def file_exists(file):
@@ -55,22 +63,18 @@ def file_exists(file):
 
 
 # passive
-def bgp(userInput, outdir):
-    os.makedirs(outdir)
+def bgp(userInput):
     if file_exists(file=userInput):
         with open(userInput.strip(), "r") as file:
             for line in file:
-                parse(req(line), line=line, dir=outdir)
+                parse(req(line), line=line)
     else:
-        parse(req(userInput), userInput, outdir)
+        parse(req(userInput), userInput)
 
 
 def main():
     args = get_args()
-    userinput = args.i
-    outputdir = args.o
-    out = "{}/out/".format(outputdir)
-    bgp(userInput=userinput, outdir=out)
+    bgp(userInput=args.i)
 
 
 if __name__ == "__main__":

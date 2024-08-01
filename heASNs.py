@@ -7,7 +7,6 @@ import re
 import requests
 import sys
 import mmh3
-import requests
 import codecs
 from requests.exceptions import ProxyError, ReadTimeout, ConnectTimeout
 

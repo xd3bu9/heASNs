@@ -1,30 +1,16 @@
 A script that fetches ASN information and ip ranges from [Hurricane Electric](https://bgp.he.net.).
 
-**Usage**
-```
-python heASNs.py -i /path/to/org/names/file.txt -o /path/to/output/dir
-```
-**Input**
+### Usage
 
-A list of org names.
-
-`cat sample.txt`
+**Single target**
 ```
-google
-yahoo
-dell
+python heASNs.py -i dell
 ```
 
-**Output**
+**Multiple targets**
+```
+python heASNs.py -i /path/to/org/names/file.txt
+```
 
-```
-.
-├──ASNs
-   ├──dell.txt
-   ├──google.txt
-   └──yahoo.txt
-├──ipRanges
-   ├──dell.txt
-   ├──google.com
-   └──yahoo.txt
-```
+
+#### Note: Verify results from the script as no valdation is done to confirm ownership.

@@ -25,14 +25,6 @@ def get_args():
     return parser.parse_args()
 
 
-# save output
-def save_output(directory, filename, output):
-    path = os.path.join(directory, "{}.txt".format(filename))
-    with open(path, "w") as out_file:
-        for value in output:
-            out_file.write(value + "\n")
-
-
 def req(domain):
     parameters = {"search[search]": domain.strip(), "commit": "Search"}
     x = requests.get("https://bgp.he.net/search", params=parameters)
@@ -43,15 +35,14 @@ def req(domain):
 
 
 def print_output(lst, line):
-    if (len(lst) < 1):
+    if len(lst) < 1:
         return
     print("----- " + line.strip() + " -----")
     for item in lst:
         print(item)
 
 
-# end def
-def parse(links, line, dir):
+def parse(links, line):
     ipRanges = list(set(re.findall(ranges_pattern, str(links))))
     asns = list(set(re.findall(asn_pattern, str(links))))
     print_output(asns, line=line)
@@ -62,7 +53,6 @@ def file_exists(file):
     return os.path.isfile(file)
 
 
-# passive
 def bgp(userInput):
     if file_exists(file=userInput):
         with open(userInput.strip(), "r") as file:

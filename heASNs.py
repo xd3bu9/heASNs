@@ -5,10 +5,6 @@ from bs4 import BeautifulSoup
 import os
 import re
 import requests
-import sys
-import mmh3
-import codecs
-from requests.exceptions import ProxyError, ReadTimeout, ConnectTimeout
 
 requests.packages.urllib3.disable_warnings(
     requests.packages.urllib3.exceptions.InsecureRequestWarning

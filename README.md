@@ -1,15 +1,16 @@
 A script that fetches ASN information and ip ranges from [Hurricane Electric](https://bgp.he.net.).
 
 ### Usage
+Input should be either a single organization name, or a new line delimited file of organization names.
 
 **Single target**
 ```
-python heASNs.py -i dell
+python heASNs.py -i <target>
 ```
 
 **Multiple targets**
 ```
-python heASNs.py -i /path/to/org/names/file.txt
+python heASNs.py -i </path/to/org/names/file.txt>
 ```
 
 

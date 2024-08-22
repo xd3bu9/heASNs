@@ -16,6 +16,7 @@ resultlist = []
 ranges_pattern = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}/\d{1,2}\b")
 asn_pattern = re.compile(r"\bAS\d{5}\b")
 
+
 def get_args():
     parser = ArgumentParser()
     parser.add_argument("-i", metavar="INPUT", help="organization name or input file.")
@@ -24,10 +25,13 @@ def get_args():
 
 def req(org):
     parameters = {"search[search]": org.strip(), "commit": "Search"}
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"
-    }
-    x = requests.get("https://bgp.he.net/search", params=parameters)
+    x = requests.get(
+        "https://bgp.he.net/search",
+        params=parameters,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"
+        },
+    )
     html = BeautifulSoup(x.text, "html.parser")
     table = html.find("table", attrs={"class": "w100p"})
     atags = table.find_all("a")

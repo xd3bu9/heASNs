@@ -41,7 +41,7 @@ def req(org):
 def parse(links, org):
     ipRanges = list(set(re.findall(ranges_pattern, str(links))))
     asns = list(set(re.findall(asn_pattern, str(links))))
-    item = {org: {"asns": asns, "ranges": ipRanges}}
+    item = {"name": org, "data": {"asns": asns, "ranges": ipRanges}}
     resultlist.append(item)
 
 

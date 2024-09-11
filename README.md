@@ -14,4 +14,4 @@ python heASNs.py -i </path/to/org/names/file.txt>
 ```
 
 
-#### Note: Verify results from the script as no valdation is done to confirm ownership.
+#### Note: Verify results from the script as no validation is done to confirm asset ownership.
